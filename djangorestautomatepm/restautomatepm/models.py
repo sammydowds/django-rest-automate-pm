@@ -1,15 +1,15 @@
 from django.db import models
 
 class Projects(models.Model): 
-    name = models.CharField()
+    name = models.TextField()
     description = models.TextField()
     complete = models.BooleanField()
     status = models.BooleanField()
     lastupdated = models.DateField()
-    company = models.CharField() 
+    company = models.TextField() 
 
 class Phases(models.Model): 
-    name = models.CharField()
+    name = models.TextField()
     description = models.TextField()
     start = models.DateField()
     end = models.DateField() 

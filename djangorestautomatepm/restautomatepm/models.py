@@ -16,7 +16,7 @@ class Phases(models.Model):
     complete = models.BooleanField()
     active = models.BooleanField()
     lastupdated = models.DateField()
-    projectId: models.IntegerField()
+    projectId = models.IntegerField(null=True, blank=True)
     
 class Log(models.Model):
     description = models.TextField()

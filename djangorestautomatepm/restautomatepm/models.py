@@ -8,18 +8,17 @@ class Projects(models.Model):
 
 class Phases(models.Model): 
     name = models.TextField()
-    description = models.TextField()
     start = models.DateField()
     end = models.DateField() 
     complete = models.BooleanField()
     active = models.BooleanField()
     lastupdated = models.DateField()
-    projectId = models.IntegerField(null=True, blank=True)
+    projectId = models.IntegerField(default=0)
     
 class Log(models.Model):
-    description = models.TextField()
+    description = models.TextField(default='..changed not recorded', blank=False) 
     notes = models.TextField()
     timestamp = models.DateField()
-    projectId = models.IntegerField() 
+    projectId = models.IntegerField(default=0) 
 
 # Think about adding meta data if necessary 

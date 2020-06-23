@@ -8,7 +8,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
 class PhasesSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Phases
-        fields = ['id', 'name', 'description', 'complete', 'active', 'lastupdated', 'start', 'end', 'projectId']
+        fields = ['id', 'name', 'complete', 'active', 'lastupdated', 'start', 'end', 'projectId']
 
 class LogSerializer(serializers.ModelSerializer):
     class Meta: 

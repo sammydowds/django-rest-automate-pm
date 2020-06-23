@@ -1,12 +1,10 @@
 from django.db import models
 
 class Projects(models.Model): 
-    name = models.TextField()
-    description = models.TextField()
-    complete = models.BooleanField()
-    status = models.BooleanField()
-    lastupdated = models.DateField()
-    company = models.TextField() 
+    name = models.TextField(blank=False)
+    complete = models.BooleanField(default=False)
+    status = models.BooleanField(default=False)
+    lastupdated = models.DateField(blank=False)
 
 class Phases(models.Model): 
     name = models.TextField()

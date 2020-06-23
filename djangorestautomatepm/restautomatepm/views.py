@@ -4,24 +4,16 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from restautomatepm.models import Projects, Phases, Log
 from restautomatepm.serializers import ProjectsSerializer, PhasesSerializer, LogSerializer
+from rest_framework import generics 
 
 
-@csrf_exempt
-def projects(request): 
-    if request.method == "GET":
-        print(request) 
-        projects = Projects.objects.all()
-        serializer = ProjectsSerializer(projects, many=True)
-        check_resp = JsonResponse(serializer.data, safe=False)
-        return JsonResponse(serializer.data, safe=False)
-    
-    if request.method == "POST": 
-        data = JSONParser().parse(request)
-        serializer = ProjectsSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+class ProjectList(generics.ListAPIView): 
+    queryset = Projects.objects.all()
+    serializer_class = ProjectsSerializer
+
+class CreateProject(generics.CreateAPIView): 
+    queryset = Projects.objects.all()
+    serializer_class = ProjectsSerializer
 
 @csrf_exempt
 def phases(request): 

@@ -4,7 +4,7 @@ from restautomatepm.models import Projects, Phases, Log
 class ProjectsSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Projects 
-        fields = ['id', 'name', 'description', 'complete', 'status', 'lastupdated', 'company']
+        fields = ['id', 'name', 'complete', 'status', 'lastupdated']
 class PhasesSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Phases

@@ -5,9 +5,11 @@ from rest_framework.parsers import JSONParser
 from restautomatepm.models import Projects, Phases, Log
 from restautomatepm.serializers import ProjectsSerializer, PhasesSerializer, LogSerializer
 from rest_framework import generics 
+from rest_framework.permissions import IsAuthenticated
 
 # Returning lists endpoints
 class ProjectList(generics.ListAPIView): 
+    permission_classes = (IsAuthenticated,)
     queryset = Projects.objects.all()
     serializer_class = ProjectsSerializer
 

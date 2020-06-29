@@ -11,5 +11,6 @@ urlpatterns = [
     path('phases/create/', views.CreatePhase.as_view()), 
     path('phases/update/<int:pk>', views.UpdatePhase.as_view()), 
     path('phases/delete/<int:pk>', views.DeletePhase.as_view()), 
-    path('log/create/', views.CreateLogEntry.as_view())
+    path('log/create/', views.CreateLogEntry.as_view()), 
+    path('signup/user/', views.CreateUser.as_view())
 ]

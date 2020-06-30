@@ -6,7 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class ProjectsSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Projects 
-        fields = ['id', 'name', 'complete', 'status', 'lastupdated', 'owner']
+        fields = ['id', 'name', 'complete', 'lastupdated', 'owner']
 
 class PhasesSerializer(serializers.ModelSerializer):
     class Meta: 

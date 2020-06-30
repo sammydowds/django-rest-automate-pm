@@ -3,7 +3,6 @@ from django.db import models
 class Projects(models.Model): 
     name = models.TextField(blank=False)
     complete = models.BooleanField(default=False)
-    status = models.BooleanField(default=False)
     lastupdated = models.DateTimeField(blank=False)
     owner = models.ForeignKey('auth.User', related_name='projects', on_delete=models.CASCADE, null=True)
 

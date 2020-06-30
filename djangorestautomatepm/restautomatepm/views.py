@@ -13,10 +13,6 @@ class ProjectList(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = ProjectsSerializer
     def get_queryset(self):
-        """
-        This view should return a list of all the purchases
-        for the currently authenticated user.
-        """
         user = self.request.user
         return Projects.objects.filter(owner=user)
 
@@ -24,10 +20,6 @@ class PhasesList(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = PhasesSerializer
     def get_queryset(self):
-        """
-        This view should return a list of all the purchases
-        for the currently authenticated user.
-        """
         user = self.request.user
         projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True).order_by('id') 
         return Phases.objects.filter(projectId__gte=projects_ids)
@@ -36,10 +28,6 @@ class LogList(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = LogSerializer
     def get_queryset(self):
-        """
-        This view should return a list of all the purchases
-        for the currently authenticated user.
-        """
         user = self.request.user
         projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True).order_by('id') 
         return Log.objects.filter(projectId__gte=projects_ids)
@@ -49,7 +37,7 @@ class CreateProject(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Projects.objects.all()
     serializer_class = ProjectsSerializer
-    # overriding create field to add 
+    # overriding create field to add user as owner
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 

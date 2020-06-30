@@ -17,9 +17,8 @@ class Phases(models.Model):
     projectId = models.IntegerField(default=0)
     
 class Log(models.Model):
-    description = models.TextField(default='..changed not recorded', blank=False) 
+    description = models.TextField(default='..change not recorded', blank=False) 
     notes = models.TextField()
     timestamp = models.DateTimeField()
     projectId = models.IntegerField(default=0) 
 
-# Think about adding meta data if necessary 

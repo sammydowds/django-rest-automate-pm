@@ -1,1 +1,1 @@
-![Image of Logo](https://github.com/sammydowds/django-rest-automate-pm/djangorestautomatepm/ground_control.png)
+![Image of Logo](djangorestautomatepm/ground_control.png)

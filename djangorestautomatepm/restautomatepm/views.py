@@ -7,8 +7,6 @@ from restautomatepm.serializers import ProjectsSerializer, PhasesSerializer, Log
 from rest_framework import generics 
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.response import Response
-from rest_framework import status
 
 
 # Returning lists endpoints
@@ -19,21 +17,26 @@ class ProjectList(generics.ListAPIView):
         user = self.request.user
         return Projects.objects.filter(owner=user)
 
-class PhasesList(generics.ListAPIView): 
-    permission_classes = (IsAuthenticated,)
-    serializer_class = PhasesSerializer
-    def get_queryset(self):
-        user = self.request.user
-        projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True).order_by('id') 
-        return Phases.objects.filter(projectId__gte=projects_ids)
 
 class LogList(generics.ListAPIView): 
     permission_classes = (IsAuthenticated,)
     serializer_class = LogSerializer
     def get_queryset(self):
         user = self.request.user
-        projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True).order_by('id') 
-        return Log.objects.filter(projectId__gte=projects_ids)
+        users_projs_logs = Projects.objects.filter(owner=user).values_list('id', flat=True)
+        print(users_projs_logs)
+        print(Log.objects.filter(projectId__in=users_projs_logs).values())
+        return Log.objects.filter(projectId__in=users_projs_logs)
+
+class PhasesList(generics.ListAPIView): 
+    permission_classes = (IsAuthenticated,)
+    serializer_class = PhasesSerializer
+    def get_queryset(self):
+        user = self.request.user
+        projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True)
+        print(projects_ids)
+        print(Phases.objects.filter(projectId__in=projects_ids).values())
+        return Phases.objects.filter(projectId__in=projects_ids)
 
 # Editing/Deleting/Creating projects endpoints 
 class CreateProject(generics.CreateAPIView): 
@@ -44,7 +47,6 @@ class CreateProject(generics.CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
     
-
 class UpdateProject(generics.UpdateAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Projects.objects.all()

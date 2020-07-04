@@ -7,6 +7,9 @@ from restautomatepm.serializers import ProjectsSerializer, PhasesSerializer, Log
 from rest_framework import generics 
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.response import Response
+from rest_framework import status
+
 
 # Returning lists endpoints
 class ProjectList(generics.ListAPIView): 
@@ -40,6 +43,7 @@ class CreateProject(generics.CreateAPIView):
     # overriding create field to add user as owner
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+    
 
 class UpdateProject(generics.UpdateAPIView):
     permission_classes = (IsAuthenticated,)

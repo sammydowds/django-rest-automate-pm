@@ -17,16 +17,13 @@ class ProjectList(generics.ListAPIView):
         user = self.request.user
         return Projects.objects.filter(owner=user)
 
-
 class LogList(generics.ListAPIView): 
     permission_classes = (IsAuthenticated,)
     serializer_class = LogSerializer
     def get_queryset(self):
         user = self.request.user
         users_projs_logs = Projects.objects.filter(owner=user).values_list('id', flat=True)
-        print(users_projs_logs)
-        print(Log.objects.filter(projectId__in=users_projs_logs).values())
-        return Log.objects.filter(projectId__in=users_projs_logs)
+        return Log.objects.filter(projectId__in=users_projs_logs).order_by('-id')
 
 class PhasesList(generics.ListAPIView): 
     permission_classes = (IsAuthenticated,)
@@ -34,9 +31,7 @@ class PhasesList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         projects_ids = Projects.objects.filter(owner=user).values_list('id', flat=True)
-        print(projects_ids)
-        print(Phases.objects.filter(projectId__in=projects_ids).values())
-        return Phases.objects.filter(projectId__in=projects_ids)
+        return Phases.objects.filter(projectId__in=projects_ids).order_by('-id')
 
 # Editing/Deleting/Creating projects endpoints 
 class CreateProject(generics.CreateAPIView): 

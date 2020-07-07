@@ -1,5 +1,5 @@
 <p align="center">
-    <img src='https://github.com/sammydowds/django-rest-automate-pm/blob/master/djangorestautomatepm/ground_control.png' width="350" height="300"/>
+    <img src='https://github.com/sammydowds/django-rest-automate-pm/blob/master/djangorestautomatepm/ground_control.png' width="300" height="300"/>
 </p>
 
 Table of Contents
@@ -13,7 +13,7 @@ Table of Contents
 * [Licensing](#license)
 
 ## What is Ground Control? 
-Ground control is a REST API for storing and acessing project data. That includes storing phases related to projects, as well as how those phases change over time in the form of logs. 
+Ground Control is a REST API for storing and acessing project data. That includes storing phases related to projects, as well as how those phases change over time in the form of logs. 
 
 The entire structure revolves around Projects (and their IDs). 
 

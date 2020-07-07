@@ -7,14 +7,21 @@ Table of Contents
 
 * [What is Ground Control?](#what-is-projectile)
 * [End Points](#end-points)
-* [Data Structures](#data-structure)
+* [Models](#data-structure)
 * [File Structure](#file-structure)
 * [Running Tests](#running-tests)
 * [Licensing](#license)
 
 ## What is Ground Control? 
+Ground control is a REST API for storing and acessing project data. That includes storing phases related to projects, as well as how those phases change over time in the form of logs. 
+
+The entire structure revolves around Projects (and their IDs). 
+
+The intent is to create a platform that 3rd parties can integrate to with new applications and streamline/improve the user experience of managing projects. 
+
 ## End Points 
-## Data Structure 
+
+## Models 
     Projects
     {
         "id": 0,

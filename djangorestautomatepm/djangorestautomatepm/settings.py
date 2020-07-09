@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%&fr(ppigd0v!2t)67w^7y0e=-b1#aia&i8swy$dtea915hlxk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -92,7 +92,8 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000"
+    "http://localhost:3000", 
+    "https://launchyourprojects.herokuapp.com/"
 ]
 
 CORS_ALLOW_METHODS = [
@@ -173,3 +174,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

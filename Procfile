@@ -1,1 +1,1 @@
-web: gunicorn djangorestautomatepm.wsgi
+web: gunicorn --pythonpath djangorestautomatepm djangorestautomatepm.wsgi

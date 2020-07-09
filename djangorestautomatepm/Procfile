@@ -1,1 +1,1 @@
-web: gunicorn groundctrl.wsgi --log-file -
+web: gunicorn djangorestautomatepm.wsgi --log-file -

@@ -22,18 +22,19 @@ The intent is to create a platform that 3rd parties can integrate to with new ap
 ## End Points 
 In a RESTful API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods. Endpoints should be logically organized around collections and elements, both of which are resources.
 
-Endpoint	HTTP Method	CRUD Method	Result
-projects	GET	READ	Get all projects associated with user
-phases	    GET	READ	Get all phases associated with user's projects
-log         GET READ    Get all log entries associated with user's projects
-projects/create	POST CREATE	Create a project
-phase/create	POST CREATE	Create a phase
-log/create	    POST CREATE	Create a log entry
-signup/user     POST CREATE Create a user
-projects/update/:id PATCH UPDATE Update a Project
-phase/update/:id PATCH UPDATE Update a Phase 
-projects/delete/:id DELETE DELETE Delete a Project
-phase/delete/:id DELETE DELETE Delete a Phase  
+Endpoint | HTTP Method | CRUD Method | Result
+-- | -- | -- |--
+`projects` | GET | READ	| Get all projects associated with user
+`phases` | GET | READ | Get all phases associated with user's projects
+`log`     | GET | READ | Get all log entries associated with user's projects
+`projects/create`	|POST| CREATE|	Create a project
+`phase/create`	|POST |CREATE	|Create a phase
+`log/create`	    |POST |CREATE	|Create a log entry
+`signup/user`     |POST |CREATE| Create a user
+`projects/update/:id` |PATCH |UPDATE| Update a Project
+`phase/update/:id` |PATCH |UPDATE |Update a Phase 
+`projects/delete/:id` |DELETE |DELETE| Delete a Project
+`phase/delete/:id` |DELETE |DELETE |Delete a Phase  
 
 ## Models 
     Projects

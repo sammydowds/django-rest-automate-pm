@@ -23,7 +23,7 @@ The intent is to create a platform that 3rd parties can integrate to with new ap
 In a RESTful API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods. Endpoints should be logically organized around collections and elements, both of which are resources.
 
 Endpoint | HTTP Method | CRUD Method | Result
--- | -- | -- | -- | -- | --
+-- | -- | -- | -- 
 `projects` | GET | READ	| Get all projects associated with user
 `phases` | GET | READ | Get all phases associated with user's projects
 `log`     | GET | READ | Get all log entries associated with user's projects
@@ -35,7 +35,7 @@ Endpoint | HTTP Method | CRUD Method | Result
 `projects/delete/:id` |DELETE |DELETE| Delete a Project
 `phase/delete/:id` |DELETE |DELETE |Delete a Phase  
 `signup/user`     |POST |CREATE| Create a user
-`api/token` | POST | CREATE | Validate user and create token (JWT) - used for login
+`api/token` | POST | CREATE | Validate user and create token (JWT) used for login
 
 ## Models 
     Projects

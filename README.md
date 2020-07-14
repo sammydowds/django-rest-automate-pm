@@ -69,6 +69,26 @@ Endpoint | HTTP Method | CRUD Method | Result
     }
 
 ## File Structure 
+    .
+    ├── db.sqlite3
+    ├── djangorestautomatepm
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── ground_control.png
+    ├── manage.py
+    ├── restautomatepm
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── serializers.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    └── staticfiles
 
 ## Running the tests
 

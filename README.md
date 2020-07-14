@@ -7,7 +7,7 @@ Table of Contents
 
 * [What is Ground Control?](#what-is-projectile)
 * [End Points](#end-points)
-* [Models](#data-structure)
+* [Models](#models)
 * [File Structure](#file-structure)
 * [Running Tests](#running-tests)
 * [Licensing](#license)
